@@ -1,9 +1,11 @@
 function sales(carsSold) {
-    let total = 0;
-    for (let i = 0; i < carsSold.length; i++) {
-        total += carsSold[i];
-    }
-    return total;
-}
+  let total = {};
 
+  carsSold.forEach((car) => {
+    total[car.make]
+      ? (total[car.make] += car.price)
+      : (total[car.make] = car.price);
+  });
+  return total;
+}
 module.exports = sales;
